@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: antiquewhite;">
+    <br/>
+    <br/>
+    <br/><br/>
+    <div id="page_content">
+
+    </div>
+    <p style="text-align: center;">
+        <button onclick="loadData()" style="width: 150px; font-size: 18px; padding: 8px;">Fetch Page</button>
+    </p>
+    <script>
+        function loadData(){
+            var xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function(){
+                if(this.readyState==4&&this.status==200){
+                    document.getElementById("page_content").innerHTML=this.responseText;
+                }
+            }
+            xhttp.open("GET","/gethello",true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
